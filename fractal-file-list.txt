@@ -1,0 +1,50 @@
+.
+├── .DS_Store
+├── .firebaserc
+├── .gitignore
+├── firebase.json
+├── firestore-debug.log
+├── firestore.indexes.json
+├── firestore.rules
+├── fractal-file-list.txt
+├── functions
+│   ├── .env
+│   ├── .eslintrc.js
+│   ├── .gitignore
+│   ├── aiRouter.js
+│   ├── clients.js
+│   ├── firestore-debug.log
+│   ├── gemini-test.js
+│   ├── index.js
+│   ├── package-lock.json
+│   ├── package.json
+│   └── routes
+│       └── ai.js
+├── public
+│   └── index.html
+├── structure.txt
+└── ui
+    ├── .env
+    ├── .gitignore
+    ├── README.md
+    ├── eslint.config.js
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── postcss.config.cjs
+    ├── public
+    │   └── vite.svg
+    ├── src
+    │   ├── AiTester.jsx
+    │   ├── App.css
+    │   ├── App.jsx
+    │   ├── assets
+    │   │   └── react.svg
+    │   ├── index.css
+    │   ├── lib
+    │   │   └── openai.js
+    │   └── main.jsx
+    ├── tailwind.config.js
+    └── vite.config.js
+
+9 directories, 39 files

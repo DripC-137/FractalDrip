@@ -1,32 +1,33 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+import dotenv from "dotenv";      // ✅ Load environment variables
+dotenv.config();                  // ✅ Apply them
 
-const {setGlobalOptions} = require("firebase-functions");
-const {onRequest} = require("firebase-functions/https");
-const logger = require("firebase-functions/logger");
+import functions from "firebase-functions";
+import express from "express";
+import cors from "cors";
+import aiRoutes from "./routes/ai.js";
 
-// For cost control, you can set the maximum number of containers that can be
-// running at the same time. This helps mitigate the impact of unexpected
-// traffic spikes by instead downgrading performance. This limit is a
-// per-function limit. You can override the limit for each function using the
-// `maxInstances` option in the function's options, e.g.
-// `onRequest({ maxInstances: 5 }, (req, res) => { ... })`.
-// NOTE: setGlobalOptions does not apply to functions using the v1 API. V1
-// functions should each use functions.runWith({ maxInstances: 10 }) instead.
-// In the v1 API, each function can only serve one request per container, so
-// this will be the maximum concurrent request count.
-setGlobalOptions({ maxInstances: 10 });
+const app = express();
+app.use(cors({ origin: true }));
+app.use(express.json());
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+// ✅ Request time logger
+app.use((req, res, next) => {
+  const start = Date.now();
+  res.on("finish", () => {
+    const duration = Date.now() - start;
+    console.log(`🕒 [${req.method}] ${req.originalUrl} - ${duration}ms`);
+  });
+  next();
+});
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+app.use("/", aiRoutes);
+
+// ✅ Cloud Function with memory + timeout controls
+export const api = functions
+  .region("us-central1")
+  .runWith({
+    memory: "256MB",     // 🔧 Reduce from 512MB if not needed
+    timeoutSeconds: 30,  // ✅ Reasonable timeout for API use
+    minInstances: 1      // ⚡️ Keep warm for faster response (optional cost)
+  })
+  .https.onRequest(app);

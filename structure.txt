@@ -1,0 +1,31 @@
+.
+├── firebase.json
+├── firestore-debug.log
+├── firestore.indexes.json
+├── firestore.rules
+├── functions
+│   ├── index.js
+│   ├── package-lock.json
+│   └── package.json
+├── public
+│   └── index.html
+├── structure.txt
+└── ui
+    ├── README.md
+    ├── eslint.config.js
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── postcss.config.cjs
+    ├── public
+    │   └── vite.svg
+    ├── src
+    │   ├── App.css
+    │   ├── App.jsx
+    │   ├── assets
+    │   ├── index.css
+    │   └── main.jsx
+    ├── tailwind.config.js
+    └── vite.config.js
+
+7 directories, 22 files

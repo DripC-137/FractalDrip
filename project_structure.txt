@@ -1,0 +1,62 @@
+.
+├── firebase.json
+├── firestore-debug.log
+├── firestore.indexes.json
+├── firestore.rules
+├── fractal-file-list.txt
+├── functions
+│   ├── aiRouter.js
+│   ├── clients.js
+│   ├── firestore-debug.log
+│   ├── fractal-lock.zip
+│   ├── fractalMemory
+│   │   ├── firebaseAdminInit.js
+│   │   ├── keyManager.js
+│   │   ├── memoryBlockManager.js
+│   │   ├── memoryCompressor.js
+│   │   ├── memoryConfig.js
+│   │   ├── memoryEncryptor.js
+│   │   ├── memoryIndexer.js
+│   │   ├── memoryManager.js
+│   │   ├── memoryRouter.js
+│   │   ├── memoryStorage.js
+│   │   ├── serviceAccountKey.json
+│   │   ├── testBlockManager.js
+│   │   ├── testEncryptor.js
+│   │   ├── testManager.js
+│   │   └── utils
+│   │       ├── hashUtil.js
+│   │       └── keyGen.js
+│   ├── gemini-test.js
+│   ├── index.js
+│   ├── package-lock.json
+│   ├── package.json
+│   └── routes
+│       └── ai.js
+├── project_structure.txt
+├── public
+│   └── index.html
+├── structure.txt
+└── ui
+    ├── README.md
+    ├── eslint.config.js
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── postcss.config.cjs
+    ├── public
+    │   └── vite.svg
+    ├── src
+    │   ├── AiTester.jsx
+    │   ├── App.css
+    │   ├── App.jsx
+    │   ├── assets
+    │   │   └── react.svg
+    │   ├── index.css
+    │   ├── lib
+    │   │   └── openai.js
+    │   └── main.jsx
+    ├── tailwind.config.js
+    └── vite.config.js
+
+11 directories, 49 files

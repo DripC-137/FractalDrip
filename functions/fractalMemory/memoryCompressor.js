@@ -1,7 +1,9 @@
-// memoryCompressor.js
-import { gzipSync, gunzipSync } from 'zlib';
-import memoryConfig from './memoryConfig.js';
-import lz from 'lz-string'; // ✅ fixed CommonJS import
+// functions/fractalMemory/memoryCompressor.js
+
+import { gzipSync, gunzipSync } from "zlib";
+import memoryConfig from "./memoryConfig.js";
+import lz from "lz-string";
+
 const { encode, decode } = lz;
 
 export function compress(content) {
